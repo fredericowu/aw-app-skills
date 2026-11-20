@@ -15,9 +15,9 @@ name: AI Review
 # names) in its ADVISORY set, so adding this file cannot make
 # `code-review.yml` wait on a review it does not own.
 #
-# ── WHY AN EXACT TAG, NOT @master ─────────────────────────────────────────
-# `@v1.2.0` is immutable and never retagged; the shared repo's tag ruleset
-# enforces that for everyone including the owner.
+# ── WHY @master, NOT A TAG OR SHA ─────────────────────────────────────────
+# Workspace policy: every consumer references the shared workflows at
+# `@master`, so shared fixes reach every repo without a per-repo pin bump.
 #
 # ── THIS REPO IS PUBLIC, CROSS-OWNER (tekflox calling fredericowu) ────────
 # Two consequences:
@@ -75,7 +75,7 @@ concurrency:
 
 jobs:
   ai-review:
-    uses: fredericowu/aw-shared-workflows/.github/workflows/ai-review-reusable.yml@v1.2.0
+    uses: fredericowu/aw-shared-workflows/.github/workflows/ai-review-reusable.yml@master
     # `api_base` left at its default
     # (https://agents-platform.aw.tekflox.com/v1), the production Agents
     # Platform door this workspace already talks to everywhere else.
