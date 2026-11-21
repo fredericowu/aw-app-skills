@@ -19,7 +19,7 @@ jobs:
   release:
     permissions:
       contents: write
-    uses: tekflox/aw-marketplace/.github/workflows/app-release.yml@master
+    uses: fredericowu/aw-marketplace/.github/workflows/app-release.yml@master
     with:
       bump: ${{ inputs.bump || '' }}
     secrets:
